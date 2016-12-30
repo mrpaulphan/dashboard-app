@@ -1,3 +1,7 @@
+@extends('layouts.app')
+<div id="app" class="">
+
+  @section('content')
 @foreach ($users as $key => $user)
   <table>
     <thead>
@@ -16,3 +20,6 @@
     </tr>
   </table>
 @endforeach
+<users></users>
+</div>
+@endsection

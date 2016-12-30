@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index');
 
 
 Route::get('/dashboard/users', 'UsersController@index')->name('get.users');
+Route::get('/api/v1/users', 'UsersController@usersApi');
