@@ -15,7 +15,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-      'role_id', 'company_id',  'first_name', 'last_name', 'email', 'password', 'token'
+      'role_id',
+      'company_id',
+       'first_name',
+        'last_name',
+          'email',
+          'password',
+            'token',
     ];
 
     /**
@@ -24,14 +30,27 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'token'
+        'password',
+        'remember_token',
+        'token',
     ];
+    public function role()
+    {
+        return $this->belongsTo('App\Role');
+    }
+
+    public function company()
+    {
+        return $this->belongsTo('App\Company');
+    }
 
     /*
       Returns full name
      */
-    public function fullName() {
-      $fullName = $this->first_name. ' ' . $this->last_name;
-      return $fullName;
+    public function fullName()
+    {
+        $fullName = $this->first_name.' '.$this->last_name;
+
+        return $fullName;
     }
 }
