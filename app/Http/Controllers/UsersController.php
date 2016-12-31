@@ -14,7 +14,18 @@ class UsersController extends Controller
 {
     $this->middleware(['auth']);
 }
+/**
+ * Generates a random token of 38 chracters
+ * long.
+ *
+ * @return [interger]
+ */
+public function generateToken()
+{
+    $token = str_random(38);
 
+    return $token;
+}
     function index() {
 
       return view('users.index');
@@ -36,5 +47,37 @@ class UsersController extends Controller
       } else {
         return response()->json(null);
       }
+    }
+
+    public function create(Request $request) {
+
+      // Validate
+      $this->validate($request, [
+        'first_name' => 'required',
+        'last_name' => 'required',
+        'email' => 'required|unique:users',
+        'role_id' => 'required',
+        'company_id' => 'required'
+      ]);
+
+
+      $token = $this->generateToken();
+      // Store
+      $user = User::create([
+        'first_name' => $request->first_name,
+        'last_name' => $request->last_name,
+        'email' => $request->email,
+        'role_id' => $request->role_id,
+        'company_id' => $request->company_id,
+        'password' => bcrypt('password'),
+        'token' => $token
+      ]);
+      // Add relationship to user
+      $user->role = $user->role->get();
+      $user->company = $user->company->get();
+
+        return response()->json([
+        'user' => $user->toArray()
+      ]);
     }
 }

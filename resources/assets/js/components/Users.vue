@@ -3,6 +3,9 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
+              <div class="alert" v-if="alert">
+                <p></p>
+              </div>
                 <div class="panel-heading">Users</div>
 
                 <div class="panel-body">
@@ -25,33 +28,41 @@
                         </tbody>
                     </table>
 
-                    <form class="" action="#" method="post" v-on:submit="storeUser">
+                    <form class="" data-form="createUser" action="#" method="post" v-on:submit="storeUser">
                         <fieldset>
                             <legend>Name</legend>
                             <div class="">
                                 <label for="first_name">First Name</label>
-                                <input id="first_name" type="text" name="first_name" value="" v-model="first_name">
+                                <input id="first_name" type="text" name="first_name" value="" v-model="first_name" required>
                             </div>
                             <div class="">
                                 <label for="last_name">last Name</label>
-                                <input id="last_name" type="text" name="last_name" value="" v-model="last_name">
+                                <input id="last_name" type="text" name="last_name" value="" v-model="last_name" required>
                             </div>
                         </fieldset>
 
                         <div class="">
-                          <label for="role">Select Role</label>
-                          <select class="" name="role_id" v-model="roleSelected">
-
-                              <option v-for="(role, index) in roles" v-bind:value="role.id" v-bind:selected=" index == 0 ? 'selected' : 'asfs'"> {{ role.name }} {{ index }}</option>
+                            <label for="email">Email</label>
+                            <input id="email" type="email" name="email" value="" v-model="email" required>
+                        </div>
+                        <div class="">
+                            <label for="role">Select Role</label>
+                            <select class="" name="role_id" v-model="roleSelected">
+                              <option
+                              v-for="(role, index) in roles"
+                              v-bind:value="role.id">{{ role.name }}</option>
                           </select>
                         </div>
                         <div class="">
-                          <label for="role">Select Company</label>
-                          <select class="" name="company_id" v-model="companySelected">
-                              <option v-for="(company, index) in companies" v-bind:value="company.id"> {{ company.name }}</option>
+                            <label for="role">Select Company</label>
+                            <select class="" name="company_id" v-model="companySelected">
+                              <option
+                              v-for="(company, index) in companies"
+                              v-bind:value="company.id">{{ company.name }}</option>
                           </select>
                         </div>
-                        <input type="submit" name="" value="Add User">
+
+                        <input type="submit" name="" v-bind:value="'Add ' + first_name + ' ' + last_name">
                     </form>
                 </div>
             </div>
@@ -64,9 +75,16 @@
 export default {
     data() {
         return {
+            roleSelected: 0,
             users: [],
             roles: [],
-            companies: []
+            companies: [],
+            first_name: '',
+            last_name: '',
+            email: '',
+            role_id: '',
+            company_id: '',
+            alert: 'asldkjf'
         }
     },
     created() {
@@ -84,8 +102,8 @@ export default {
                 dataType: 'json',
 
                 success: function(request) {
+                    console.log('Fetch User Success');
                     vm.listUsers(request);
-                    console.log(request);
                 },
                 error: function(error) {
                     if (error.status == 404) {
@@ -107,6 +125,33 @@ export default {
         },
         storeUser(e) {
             e.preventDefault();
+            var vm = this;
+            var data = $('[data-form="createUser"]').serialize();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/dashboard/users/create',
+                type: 'POST',
+                dataType: 'json',
+                data: data,
+
+                success: function(request) {
+                    console.log('Created User');
+                        console.log(request);
+                        // Update user list
+                        vm.users.push(request.user);
+                },
+                error: function(error) {
+                    if (error.status == 404) {
+                        console.log('page not found');
+                    } else {
+                        console.log(error.statusText);
+                    }
+                }
+            })
 
         }
 
