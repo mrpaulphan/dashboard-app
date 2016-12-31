@@ -1,11 +1,9 @@
 <template>
 <div class="container">
+    <Alert v-if="alert" v-bind:message="alert" />
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-              <div class="alert" v-if="alert">
-                <p></p>
-              </div>
                 <div class="panel-heading">Users</div>
 
                 <div class="panel-body">
@@ -55,7 +53,7 @@
                         </div>
                         <div class="">
                             <label for="role">Select Company</label>
-                            <select class="" name="company_id" v-model="companySelected">
+                            <select class="" name="company_id" v-model="Davi">
                               <option
                               v-for="(company, index) in companies"
                               v-bind:value="company.id">{{ company.name }}</option>
@@ -72,6 +70,7 @@
 </template>
 
 <script>
+Vue.component('Alert', require('./Alert.vue'));
 export default {
     data() {
         return {
@@ -84,7 +83,7 @@ export default {
             email: '',
             role_id: '',
             company_id: '',
-            alert: 'asldkjf'
+            alert: ''
         }
     },
     created() {
@@ -140,9 +139,10 @@ export default {
 
                 success: function(request) {
                     console.log('Created User');
-                        console.log(request);
-                        // Update user list
-                        vm.users.push(request.user);
+                    console.log(request);
+                    // Update user list
+                    vm.users.push(request.user);
+                    vm.alert = 'It worked';
                 },
                 error: function(error) {
                     if (error.status == 404) {

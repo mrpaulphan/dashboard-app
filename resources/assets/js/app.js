@@ -13,6 +13,7 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.component('alert', require('./components/Alert.vue'));
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('users', require('./components/Users.vue'));
 
