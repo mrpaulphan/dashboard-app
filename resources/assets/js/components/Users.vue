@@ -14,6 +14,7 @@
                                 <th>Email</th>
                                 <th>Role</th>
                                 <th>Company</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -22,6 +23,7 @@
                                 <th>{{ user.email }}</th>
                                 <th>{{ user.role.name }}</th>
                                 <th>{{ user.company.name }}</th>
+                                <th><a v-bind:href='detailUrl + user.id'>Detail</a></th>
                             </tr>
                         </tbody>
                     </table>
@@ -83,7 +85,8 @@ export default {
             email: '',
             role_id: '',
             company_id: '',
-            alert: ''
+            alert: '',
+            detailUrl: '/dashboard/user/detail/'
         }
     },
     created() {
@@ -147,8 +150,12 @@ export default {
                 error: function(error) {
                     if (error.status == 404) {
                         console.log('page not found');
+                        vm.alert = 'It FAILEDDDDD';
+
                     } else {
                         console.log(error.statusText);
+                        vm.alert = 'It FAILEDDDDD';
+
                     }
                 }
             })

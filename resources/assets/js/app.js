@@ -16,6 +16,7 @@ require('./bootstrap');
 Vue.component('alert', require('./components/Alert.vue'));
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('users', require('./components/Users.vue'));
+Vue.component('userdetail', require('./components/UserDetail.vue'));
 
 const app = new Vue({
     el: '#app'
