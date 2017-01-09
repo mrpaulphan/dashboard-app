@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/api', 'TimesheetController@getTime');
 
 Route::get('/dashboard/users', 'UsersController@index')->name('get.users');
 Route::post('/dashboard/users/create', 'UsersController@create')->name('create.user');
