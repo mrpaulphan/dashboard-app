@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
                 $table->string('first_name');
                 $table->string('last_name');
                 $table->string('email')->unique();
-                $table->string('phone')->nullable()->unique();
+                $table->string('phone')->nullable();
                 $table->string('avatar_url')->default('http://placehold.it/100x100');
                 $table->string('password');
                 $table->string('token')->unique();
