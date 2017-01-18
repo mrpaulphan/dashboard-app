@@ -53,6 +53,8 @@
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
+                          <li> <a href="/dashboard/projects">Projects</a></li>
+                          <li> <a href="/dashboard/invoices">Invoices</a></li>
                           <li> <a href="/dashboard/users">Users</a></li>
                           <li> <a href="/dashboard/companies">Companies</a></li>
                             <li class="dropdown">

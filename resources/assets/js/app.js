@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * include Vue and Vue Resource. This gives a great starting point for
@@ -6,6 +5,7 @@
  */
 
 require('./bootstrap');
+window.Chart = require('chart.js');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,10 +15,15 @@ require('./bootstrap');
 
 Vue.component('alert', require('./components/Alert.vue'));
 Vue.component('example', require('./components/Example.vue'));
+Vue.component('dashboard', require('./components/Dashboard.vue'));
 Vue.component('users', require('./components/Users.vue'));
 Vue.component('userdetail', require('./components/UserDetail.vue'));
 Vue.component('companies', require('./components/Companies.vue'));
 
 const app = new Vue({
     el: '#app'
+});
+
+$(document).ready(function() {
+
 });

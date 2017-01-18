@@ -8,7 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                  <canvas id="myChart" width="400" height="400"></canvas>
                 </div>
             </div>
         </div>
