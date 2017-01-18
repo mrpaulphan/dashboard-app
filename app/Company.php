@@ -20,7 +20,6 @@ class Company extends Model
     'city',
     'state',
     'zip_code',
-    'email',
     'phone',
   ];
 }

@@ -53,7 +53,6 @@ class CompaniesController extends Controller
         'city' => $request->city,
         'state' => $request->state,
         'zip_code' => $request->zip_code,
-        'email' => $request->email,
         'phone' => $request->phone,
       ]);
 

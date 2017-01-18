@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-    <Alert v-if="alert" v-bind:message="alert" />
+    <Alert v-if="alertMessage" v-bind:message="alertMessage" v-bind:type="alertType"  />
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -27,39 +27,35 @@
                     </div>
                     <div class="">
                         <label for="website">Webisite</label>
-                        <input id="website" type="text" name="website" value="" v-model="website" required>
+                        <input id="website" type="url" name="website" value="" v-model="website" required>
                     </div>
                     <div class="">
                         <label for="street_address">address</label>
-                        <input id="street_address" type="text" name="street_address" value="" v-model="street_address" required>
+                        <input id="street_address" type="text" name="street_address" value="" v-model="street_address" >
                     </div>
                     <div class="">
                         <label for="street_address_2">address 2</label>
-                        <input id="street_address_2" type="text" name="street_address_2" value="" v-model="street_address_2" required>
+                        <input id="street_address_2" type="text" name="street_address_2" value="" v-model="street_address_2" >
                     </div>
                     <div class="">
                         <label for="city">city</label>
-                        <input id="city" type="text" name="city" value="" v-model="city" required>
+                        <input id="city" type="text" name="city" value="" v-model="city" >
                     </div>
 
                     <div class="">
                         <label for="state">state</label>
-                        <input id="state" type="text" name="state" value="" v-model="state" required>
+                        <input id="state" type="text" name="state" value="" v-model="state" >
                     </div>
 
                     <div class="">
                         <label for="zip_code">zip_code</label>
-                        <input id="zip_code" type="text" name="zip_code" value="" v-model="zip_code" required>
+                        <input id="zip_code" type="text" name="zip_code" value="" v-model="zip_code">
                     </div>
 
-                    <div class="">
-                        <label for="email">email</label>
-                        <input id="email" type="text" name="email" value="" v-model="email" required>
-                    </div>
 
                     <div class="">
                         <label for="phone">phone</label>
-                        <input id="phone" type="text" name="phone" value="" v-model="phone" required>
+                        <input id="phone" type="tel" name="phone" value="" v-model="phone">
                     </div>
 
                       <input type="submit" name="" value="Add new company">
@@ -86,10 +82,10 @@ export default {
             city: '',
             state: '',
             zip_code: '',
-            email: '',
             phone: '',
             created_at: '',
             updated_at: ''
+
         }
     },
     created() {
@@ -128,6 +124,8 @@ export default {
             console.log('listCompanies() called');
             // Bind request to data.companies
             this.companies = request.companies;
+
+
         },
         storeCompany(e) {
           console.log('storeCompany() called');
@@ -150,16 +148,19 @@ export default {
                     console.log(request);
                     // Update user list
                     vm.companies.push(request.company);
-                    vm.alert = 'It worked';
+                    vm.alertType = 'success';
+                    vm.alertMessage = 'Success: ' + request.company.name + ' was created';
                 },
                 error: function(error) {
                     if (error.status == 404) {
                         console.log('page not found');
-                        vm.alert = 'It FAILEDDDDD';
+                        vm.alertType = 'error';
+                        vm.alertMessage = 'Error: ' + error;
 
                     } else {
                         console.log(error.statusText);
-                        vm.alert = 'It FAILEDDDDD';
+                        vm.alertType = 'error';
+                        vm.alertMessage = 'Error: ' + error;
 
                     }
                 }
