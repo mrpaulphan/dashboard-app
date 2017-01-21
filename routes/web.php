@@ -33,3 +33,10 @@ Route::get('/dashboard/user/detail/{id}', 'UsersController@detail')->name('get.u
  Route::get('/dashboard/companies', 'CompaniesController@index')->name('get.companies');
  Route::get('/api/v1/companies', 'CompaniesController@companiesApi');
  Route::post('/dashboard/company/create', 'CompaniesController@create')->name('create.company');
+
+/*
+ * Projects
+ */
+ Route::get('/dashboard/projects', 'ProjectsController@index')->name('get.projects');
+ Route::get('/api/v1/projects', 'ProjectsController@projectsApi');
+ Route::post('/dashboard/project/create', 'ProjectsController@create')->name('create.project');

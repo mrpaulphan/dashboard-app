@@ -1,0 +1,20 @@
+.sidebar {
+  &__header {
+    img {
+      width: 100%;
+    }
+  }
+  &__nav {
+
+  }
+
+}
+
+.nav {
+  &__link {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 10px;
+  }
+}

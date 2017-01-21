@@ -22,4 +22,9 @@ class Company extends Model
     'zip_code',
     'phone',
   ];
+
+  public function project()
+{
+    return $this->hasMany('App\Project');
+}
 }
