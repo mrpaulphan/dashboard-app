@@ -659,6 +659,34 @@
   color: #31708f;
 }
 
+.status, .status--paid, .status--draft, .status--sent, .status--viewed {
+  padding: 0 10px 0 10px;
+  height: 20px;
+  position: relative;
+  font-size: 10px;
+  min-width: 86px;
+  color: #FFF;
+  text-align: left;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.status--paid {
+  background-color: #3c763d;
+}
+
+.status--draft {
+  background-color: #E24F43;
+}
+
+.status--sent {
+  background-color: #8a6d3b;
+}
+
+.status--viewed {
+  background-color: #31708f;
+}
+
 .sidebar__header img {
   width: 100%;
 }
@@ -701,6 +729,30 @@ html.active, body.active {
   justify-content: space-between;
   -webkit-box-align: center;
   align-items: center;
+}
+
+.list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.list__row {
+  list-style: none;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  border-bottom: 1px solid #E7E7E7;
+}
+
+.list__row:hover, .list__row:focus {
+  background-color: #FAFAFA;
+  cursor: pointer;
+}
+
+.list__column {
+  padding: 10px;
 }
 
 .modal__container {

@@ -28,7 +28,7 @@
         <nav class="sidebar__nav nav">
           <a class="nav__link" href="#">Dashboard</a>
           <a class="nav__link" href="{{ route('get.projects') }}">Projects</a>
-          <a class="nav__link" href="#">Invoice</a>
+          <a class="nav__link" href="{{ route('get.invoices')}}">Invoice</a>
           <a class="nav__link" href="#">Issues</a>
           <a class="nav__link" href="#">Users</a>
           <a class="nav__link" href="#">Companies</a>

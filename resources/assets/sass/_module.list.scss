@@ -1,0 +1,19 @@
+.list {
+  width: 100%;
+  margin: 0;
+padding:0;
+  &__row {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #E7E7E7;
+    &:hover, &:focus {
+      background-color: #FAFAFA;
+    cursor: pointer;
+    }
+  }
+
+  &__column {
+    padding:10px;
+  }
+}

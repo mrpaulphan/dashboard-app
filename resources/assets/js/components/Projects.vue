@@ -128,8 +128,7 @@ export default {
                 success: function(request) {
                     console.log('Created Project');
                     console.log(request);
-                    // Update project list
-                    vm.projects.push(request.project);
+              vm.projects.push(request.project);
                     vm.modal = false;
 
                     vm.alertType = 'success';

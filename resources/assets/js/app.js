@@ -21,6 +21,7 @@ Vue.component('users', require('./components/Users.vue'));
 Vue.component('userdetail', require('./components/UserDetail.vue'));
 Vue.component('companies', require('./components/Companies.vue'));
 Vue.component('projects', require('./components/Projects.vue'));
+Vue.component('invoices', require('./components/Invoices.vue'));
 
 const app = new Vue({
     el: '#app'

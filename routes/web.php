@@ -40,3 +40,9 @@ Route::get('/dashboard/user/detail/{id}', 'UsersController@detail')->name('get.u
  Route::get('/dashboard/projects', 'ProjectsController@index')->name('get.projects');
  Route::get('/api/v1/projects', 'ProjectsController@projectsApi');
  Route::post('/dashboard/project/create', 'ProjectsController@create')->name('create.project');
+
+/*
+ * Invoices
+ */
+Route::get('/invoices', 'InvoicesController@index')->name('get.invoices');
+Route::get('/api/v1/invoices', 'InvoicesController@invoicesApi');

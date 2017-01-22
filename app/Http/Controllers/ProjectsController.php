@@ -37,7 +37,7 @@ public function generateSlug($slug)
           $project->users;
       }
       // Check if the user is logged in
-      if (Auth::user()) {
+      if (Auth::user()->role->name == 'admin') {
           return response()->json([
           'projects' => $projects->toArray(),
           'users' => User::all()->toArray(),

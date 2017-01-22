@@ -58,7 +58,18 @@ class UsersTableSeeder extends Seeder
         'token' => str_random(32),
         'created_at' => \Carbon\Carbon::now(),
         'updated_at' => \Carbon\Carbon::now(),
-      ]]
+      ],  [
+          'role_id' => 4,
+          'company_id' => 1,
+          'first_name' => 'John',
+          'last_name' => 'Elonis',
+          'email' => 'John@preppedelivery.com',
+          'phone' => '555-555-5558',
+          'password' => Hash::make('password'),
+          'token' => str_random(32),
+          'created_at' => \Carbon\Carbon::now(),
+          'updated_at' => \Carbon\Carbon::now(),
+        ]]
     );
   }
 }
