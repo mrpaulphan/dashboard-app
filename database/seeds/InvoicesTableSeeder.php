@@ -11,9 +11,9 @@ class InvoicesTableSeeder extends Seeder
     {
         DB::table('invoices')->insert([
           [
-            'id' => 1,
+            'id' => 120,
             'user_id' => 3,
-            'invoice_number' => 'IN-1',
+            'invoice_number' => 'IN-120',
             'description' => 'CMS Build',
             'rate' => '50',
             'quantity' => '1',
@@ -28,9 +28,9 @@ class InvoicesTableSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
           ],
           [
-            'id' => 2,
+            'id' => 121,
             'user_id' => 3,
-            'invoice_number' => 'IN-2',
+            'invoice_number' => 'IN-121',
             'description' => 'Logo',
             'rate' => '50',
             'quantity' => '1',
@@ -45,9 +45,9 @@ class InvoicesTableSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
           ],
           [
-            'id' => 3,
+            'id' => 122,
             'user_id' => 4,
-            'invoice_number' => 'IN-3',
+            'invoice_number' => 'IN-122',
             'description' => 'Front-End Build',
             'rate' => '50',
             'quantity' => '1',
@@ -62,9 +62,9 @@ class InvoicesTableSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
           ],
            [
-              'id' => 4,
+              'id' => 123,
               'user_id' => 5,
-              'invoice_number' => 'IN-4',
+              'invoice_number' => 'IN-123',
               'description' => 'UX',
               'rate' => '50',
               'quantity' => '1',

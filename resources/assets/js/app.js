@@ -22,6 +22,7 @@ Vue.component('userdetail', require('./components/UserDetail.vue'));
 Vue.component('companies', require('./components/Companies.vue'));
 Vue.component('projects', require('./components/Projects.vue'));
 Vue.component('invoices', require('./components/Invoices.vue'));
+Vue.component('createinvoice', require('./components/CreateInvoice.vue'));
 
 const app = new Vue({
     el: '#app'

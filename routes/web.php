@@ -46,3 +46,6 @@ Route::get('/dashboard/user/detail/{id}', 'UsersController@detail')->name('get.u
  */
 Route::get('/invoices', 'InvoicesController@index')->name('get.invoices');
 Route::get('/api/v1/invoices', 'InvoicesController@invoicesApi');
+Route::get('/api/v1/invoice/create', 'InvoicesController@invoicesCreateApi');
+Route::get('/invoices/create', 'InvoicesController@create')->name('create.invoice');
+Route::post('/invoices/store', 'InvoicesController@store')->name('store.company');

@@ -2,6 +2,7 @@
 <div class="">
     <Alert v-if="alertMessage" v-bind:message="alertMessage" v-bind:type="alertType" />
     <p>Displaying all <span v-text="total"></span></p>
+    <p><a v-bind:href="create_url">Create New</a></p>
     <br>
     <ul class="list">
         <li class="list__row list__row--heading">
@@ -28,18 +29,17 @@
 <script>
 Vue.component('Alert', require('./Alert.vue'));
 export default {
-
     data() {
         return {
             invoices: [],
             total: '',
+            create_url: '',
             modal: false
         }
     },
     created() {
         console.log('created() ready');
         this.fetchInvoices();
-
     },
     methods: {
         /*
@@ -71,15 +71,11 @@ export default {
             // Bind request to data.companies
             this.invoices = request.invoices;
             this.total = request.total;
-
-            $(".js-example-basic-multiple").select2();
-
-
+            this.create_url = request.create_url;
         }
     },
     mounted() {
         console.log('mouted() ready');
-
     }
 }
 </script>

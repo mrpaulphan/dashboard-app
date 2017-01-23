@@ -1,0 +1,15 @@
+{
+  "name": "cashier",
+  "homepage": "https://github.com/laravel/cashier",
+  "version": "7.0.5",
+  "_release": "7.0.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v7.0.5",
+    "commit": "1067614a481b3a90170db6ed198f9ecf93f20a37"
+  },
+  "_source": "git://github.com/laravel/cashier.git",
+  "_target": "^7.0.5",
+  "_originalSource": "laravel/cashier",
+  "_direct": true
+}
